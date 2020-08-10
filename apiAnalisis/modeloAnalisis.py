@@ -167,7 +167,6 @@ class modeloAnalisis():
         DataframePreprocesado.to_csv("apiAnalisis/4.DatasetBancoPreprocesado.csv", sep=";", index=False)
 
         cr = DataframePreprocesado.corr()
-        cr = round(cr, 3)
         DataframePreprocesado = DataframePreprocesado.drop(['TIPOCLIENTE'], axis=1)
         data_scaler_minmax = preprocessing.MinMaxScaler(feature_range=(0, 1))
         data_scaled_minmax = data_scaler_minmax.fit_transform(DataframePreprocesado)
