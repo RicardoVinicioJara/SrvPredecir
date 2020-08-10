@@ -1,5 +1,7 @@
 from flask import Flask, request, send_file
-from modeloAnalisis import modeloAnalisis, Cliente
+from apiAnalisis.modeloAnalisis import modeloAnalisis, Cliente
+
+
 app = Flask(__name__)
 
 
@@ -35,6 +37,7 @@ def predecirCliente():
                          TIEMPOEMPLEO, TASAPAGO, ESTADOCIVILYSEXO, GARANTE, AVALUOVIVIENDA, ACTIVOS, EDAD, VIVIENDA,
                          CANTIDADCREDITOSEXISTENTES, EMPLEO, TRABAJADOREXTRANJERO, TIPOCLIENTE)
         modeloAnalisis.addRow(clinte, clinte)
+
         resul = modeloAnalisis.predecirTipoCliente(modeloAnalisis, int(DNI))
         return resul;
 

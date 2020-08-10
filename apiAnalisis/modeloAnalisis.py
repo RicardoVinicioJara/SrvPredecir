@@ -35,6 +35,9 @@ class Cliente():
 
 
 class modeloAnalisis():
+    def __init__(self):
+        pass
+
     """Clase modelo Analisis"""
     dfOriginal = pd.DataFrame([])
     DataframeTransformado1 = pd.DataFrame([])
