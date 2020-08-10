@@ -39,10 +39,10 @@ class modeloAnalisis():
     dfOriginal = pd.DataFrame([])
     DataframeTransformado1 = pd.DataFrame([])
 
-    def getPastel(self, buenos, malos):
-        manzanas = [buenos, malos]
-        nombres = ["CLientes Buenos", "Clientes Malos"]
-        desfase = (0, 0.1)
+    def getPastel(self, buenos, malos, definir):
+        manzanas = [buenos, malos, definir]
+        nombres = ["CLientes Buenos", "Clientes Malos", "Clientes por definir"]
+        desfase = (0, 0.1, 0)
         plt.pie(manzanas, labels=nombres, autopct="%0.1f %%", explode=desfase)
         plt.savefig("apiAnalisis/pastel.png")
         print('Guardando.... Pastel')
