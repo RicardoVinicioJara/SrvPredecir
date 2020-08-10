@@ -4,7 +4,8 @@ from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
 from sklearn.compose import make_column_transformer
 from sklearn import preprocessing
 import matplotlib.pyplot as plt
-
+import matplotlib
+matplotlib.use('Agg')
 
 
 class Cliente():
