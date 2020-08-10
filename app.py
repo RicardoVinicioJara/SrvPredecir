@@ -1,7 +1,6 @@
 from flask import Flask, request, send_file
 from modeloAnalisis import modeloAnalisis, Cliente
 app = Flask(__name__)
-modelo = modeloAnalisis()
 
 
 @app.route('/')
@@ -35,20 +34,20 @@ def predecirCliente():
         clinte = Cliente(DNI, PLAZOMESESCREDITO, HISTORIALCREDITO, PROPOSITOCREDITO, MONTOCREDITO, SALDOCUENTAAHORROS,
                          TIEMPOEMPLEO, TASAPAGO, ESTADOCIVILYSEXO, GARANTE, AVALUOVIVIENDA, ACTIVOS, EDAD, VIVIENDA,
                          CANTIDADCREDITOSEXISTENTES, EMPLEO, TRABAJADOREXTRANJERO, TIPOCLIENTE)
-        modeloAnalisis.addRow(cli, clinte)
-        resul = modeloAnalisis.predecirTipoCliente(modelo, int(DNI))
+        modeloAnalisis.addRow(clinte, clinte)
+        resul = modeloAnalisis.predecirTipoCliente(modeloAnalisis, int(DNI))
         return resul;
 
 
 @app.route('/predecir', methods=['GET'])
 def predecirTipoCliente():
     DNI = request.args.get('DNI')
-    resul = modeloAnalisis.predecirTipoCliente(modelo, DNI)
+    resul = modeloAnalisis.predecirTipoCliente(modeloAnalisis, DNI)
     return resul
 
 @app.route('/getImage')
 def getImage():
-    modeloAnalisis.getImg(modelo)
+    modeloAnalisis.getImg(modeloAnalisis)
     return send_file("apiAnalisis/pastel.png", mimetype='image/png')
 
 @app.route('/getPaste', methods=['GET'])
@@ -56,7 +55,7 @@ def getPaste():
     buenos = request.args.get('buenos')
     malos = request.args.get('malos')
     definir = request.args.get('definir')
-    modeloAnalisis.getPastel(modelo, int(buenos), int(malos), int(definir))
+    modeloAnalisis.getPastel(modeloAnalisis, int(buenos), int(malos), int(definir))
     return send_file("apiAnalisis/pastel2.png", mimetype='image/png')
 
 
