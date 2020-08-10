@@ -1,7 +1,5 @@
 from flask import Flask, request, send_file
 from apiAnalisis.modeloAnalisis import modeloAnalisis, Cliente
-import json
-import pandas as pd
 app = Flask(__name__)
 
 

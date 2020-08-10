@@ -118,8 +118,6 @@ class modeloAnalisis():
             saldoAhorros = round(cliente[1], 2)
             tiempoEmpleo = round(cliente[2], 2)
             activos = round(cliente[4], 2)
-            print('Historial de Crédito:', historialCredito, ' Saldo:', saldoAhorros, ' Tiempo de empleo:',
-                  tiempoEmpleo, ' Activos:', activos, ' Edad:', edad)
             if activos < 0.5 and edad > 25 and (historialCredito < 0.5 or saldoAhorros > 0.5 or tiempoEmpleo > 0.5):
                 tipoCliente = '1'
             else:
