@@ -58,7 +58,7 @@ def getPaste():
     malos = request.args.get('malos')
     definir = request.args.get('definir')
     modeloAnalisis.getPastel(modeloAnalisis, int(buenos), int(malos), int(definir))
-    return send_file("apiAnalisis/pastel.png", mimetype='image/png')
+    return send_file("apiAnalisis/pastel2.png", mimetype='image/png')
 
 
 if __name__ == '__main__':

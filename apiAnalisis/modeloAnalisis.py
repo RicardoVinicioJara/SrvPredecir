@@ -42,9 +42,9 @@ class modeloAnalisis():
     def getPastel(self, buenos, malos, definir):
         manzanas = [buenos, malos, definir]
         nombres = ["CLientes Buenos", "Clientes Malos", "Clientes por definir"]
-        desfase = (0, 0.1, 0)
+        desfase = (0, 0, 0.1)
         plt.pie(manzanas, labels=nombres, autopct="%0.1f %%", explode=desfase)
-        plt.savefig("apiAnalisis/pastel.png")
+        plt.savefig("apiAnalisis/pastel2.png")
         print('Guardando.... Pastel')
 
     def getImg(self):
