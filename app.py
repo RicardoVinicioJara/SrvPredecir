@@ -1,5 +1,5 @@
 from flask import Flask, request, send_file
-from apiAnalisis.modeloAnalisis import modeloAnalisis, Cliente
+from modeloAnalisis import modeloAnalisis, Cliente
 app = Flask(__name__)
 
 
