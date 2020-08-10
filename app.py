@@ -1,9 +1,8 @@
 from flask import Flask, request, send_file
-from apiAnalisis.modeloAnalisis import modeloAnalisis, Cliente
-
+from apiAnalisis.modeloAnalisis import modeloAnalisis
+from apiAnalisis.modeloAnalisis import Cliente
 
 app = Flask(__name__)
-
 
 @app.route('/')
 def hello_world():

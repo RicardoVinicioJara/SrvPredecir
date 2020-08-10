@@ -36,9 +36,12 @@ class Cliente():
 
 class modeloAnalisis():
     """Clase modelo Analisis"""
-    dfOriginal = pd.DataFrame([])
-    DataframeTransformado1 = pd.DataFrame([])
 
+    def __init__(slef):
+        slef.dfOriginal = pd.DataFrame([])
+        slef.DataframeTransformado1 = pd.DataFrame([])
+
+    @staticmethod
     def getPastel(self, buenos, malos, definir):
         manzanas = [buenos, malos, definir]
         nombres = ["CLientes Buenos", "Clientes Malos", "Clientes por definir"]
@@ -47,6 +50,7 @@ class modeloAnalisis():
         plt.savefig("apiAnalisis/pastel2.png")
         print('Guardando.... Pastel')
 
+    @staticmethod
     def getImg(self):
         self.dfOriginal = pd.read_csv('apiAnalisis/DatasetBanco.csv', sep=";")
         self.DataframeTransformado1 = pd.read_csv('apiAnalisis/5.DatasetBancoTransformadoMinMax.csv', sep=";")
@@ -66,6 +70,7 @@ class modeloAnalisis():
         plt.savefig("apiAnalisis/pastel.png")
         print('Guardando....')
 
+    @staticmethod
     def addRow(self, c=Cliente):
         self.dfOriginal = pd.read_csv('apiAnalisis/DatasetBanco.csv', sep=";")
         dataframe = self.dfOriginal
@@ -84,7 +89,7 @@ class modeloAnalisis():
         rest = dataframe.append(add_row, ignore_index=True)
         rest.to_csv("apiAnalisis/DatasetBanco.csv", sep=";", index=False)
 
-
+    @staticmethod
     def predecirTipoCliente(self, Dni=0):
         print('Dni:', Dni)
         self.preprocesamiento(self)
@@ -104,6 +109,7 @@ class modeloAnalisis():
             mensaje = 'No existe el cliente con Dni:' + str(Dni)
         return mensaje
 
+    @staticmethod
     def predecir(self, Dni=0):
         print(Dni)
         cliente = self.dfOriginal.loc[self.dfOriginal['DNI'] == Dni]
@@ -126,6 +132,7 @@ class modeloAnalisis():
             tipoCliente = '3'
         return tipoCliente
 
+    @staticmethod
     def preprocesamiento(self):
         # os.path.join(THIS_FOLDER, 'myfile.txt')
         self.dfOriginal = pd.read_csv('apiAnalisis/DatasetBanco.csv', sep=";")
